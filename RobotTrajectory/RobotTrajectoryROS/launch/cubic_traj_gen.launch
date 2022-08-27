@@ -1,0 +1,13 @@
+<launch>
+	<node pkg = "ar_week5_test" name = "points_generator" type = "points_generator.py"/>
+	<node pkg = "ar_week5_test" name = "compute_cubic_coeffs" type = "compute_cubic_coeffs.py"/>
+	<node pkg = "ar_week5_test" name = "cubic_traj_planner" type = "cubic_traj_planner.py"/>
+	<node pkg = "ar_week5_test" name = "plot_cubic_traj" type = "plot_cubic_traj.py"/>
+	
+	<node pkg="rqt_graph" type="rqt_graph" name="rqt_graph"/>
+	
+	<node pkg="rostopic" name="init_pos" type="rostopic" args="pub -1 /position std_msgs/Float32 0"/>
+	<node pkg="rostopic" name="init_vel" type="rostopic" args="pub -1 /velocity std_msgs/Float32 0"/>
+	<node pkg="rostopic" name="init_acc" type="rostopic" args="pub -1 /acceleration std_msgs/Float32 0"/>
+	<node pkg="rqt_plot" type="rqt_plot" name="rqt_plot" args="rqt_plot /position /velocity /acceleration"/>
+</launch>
