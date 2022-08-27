@@ -1,0 +1,4 @@
+int32 id
+float32 p_happy
+float32 p_sad
+float32 p_neutral
